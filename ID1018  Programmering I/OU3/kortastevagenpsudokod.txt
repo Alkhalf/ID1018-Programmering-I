@@ -1,0 +1,82 @@
+Problembeskrivning:
+
+Vi har ett problem som är att hitta kortaste vägen mellan stationerna som börjar i station X i zone1 och slutar i
+station Y i zonen4. Det finns två mellanstationer som ligger i två olika zoner (z2,z3).
+
+Algoritm
+
+Förvillkor:
+
+Beräkna längden av vägarna från startstationen till destinaionsstationen genom var och en av mellanstationerna.
+Bestäm minsta av dessa längder (i det fall att det finns flera sådana, välj en av dem). Vägen genom motsvarende
+mellan stationen utgör den kortaste vägen mellan startstationen och destinaionsstationen.
+
+
+Eftervillkor:
+
+Programmet ska beräkna alla möjliga vägar som kan finnas från X till Y och sedan bestämma den kortaste väggen och rutenera det.
+Det kan implemnteras genom att ta reda på avståndet mellan stationen X och en station i zoen 2. 
+seddan programmet ska ta reda på avståndet mellan varje station i zonen 2 till varje station i zonen 3.
+Dessotum programmet ska ta reda på den avsåndet mellan stationerna som finns i zonen 3 och stationen Y som finns i  zonen 4.
+I slutet programmmet ska jämföra alla möjliga vägar och  välja den kortaste avståndet. 
+
+
+Steg i algoritm:
+
+1. För varje i (i mellan 1 och n, inklusive), beräkna avståndet di mellan startstationen och destinaionsstationen
+genom mellanstationen nummer i, enligt formeln di = ai + bij + cj.
+2. Initiera den aktuella mellanstationen s till 1, och kortaste avståndet min till d1.
+3. För varje i (i mellan 2 och n, inklusive) om di < min, så att min till di och s till i.
+4. Vägen genom mellanstationen s är den korstaste vägen (möjligen en av flera sådana) från startstationen
+till destinaionsstationen.
+ 
+ Psudokoden:
+ //BestamDenKortasteVagen består av:
+ //användare ange hur många mellanstationer finns i zon 2 respektiv zon 3 
+ m = antal mellanstationerna i zonen 2
+ n = antal mellanstationerna i zonen 3
+ //deklerara vektorer som motsvarar längder från mellanstationerna i varje zon
+ []a = [ m + 1] 
+ [][]b = [ m + 1 ][ n + 1 ]
+ []c = [ n + 1 ]
+ //användare ska mata in vägsträkor mellan alla stationer
+ for(i to m)
+  a[i] = användare input
+  
+   for(i to m)
+   { for (j to n)
+   {
+   b[i][j] = användare input
+   }
+   }
+  
+   for(j to n)
+  c[j] = användare input
+  
+  
+  //DenKortasteVagen består av:
+  
+ mellanstationer (a[], b[][] , c[])
+ {
+ //avstånd via mellanstationerna 
+ minsta avstånd = a[1] + b[1][1]+ c[1]
+ for i = 1 to m 
+ {
+    for j = 1 to n 
+	{
+	    if (minsta avstånd > a[i] + b[i][j] + c[j])
+	    minsta avstånd = a[i] + b[i][j] + c[j]
+	    
+ 	}
+}
+ 
+return mellanstationerna;
+
+ //langd (a[], b[][] , c[])
+[] mellanstationer =  mellanstationerna(den första metoden i klassen DenKortasteVagen ) (a, b, c);
+lang = ( (a[mellanstationer[0]]) + (b[mellanstationer[0]][mellanstationer[1]]) 
+		+ (c[mellanstationer[1]]) );
+		return lang;
+ 
+ 
+ 
